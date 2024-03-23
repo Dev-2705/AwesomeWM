@@ -1,3 +1,5 @@
+<img src="https://github.com/Dev-2705/AwesomeWM/blob/main/screenshot.png">
+
 # Various stuff in the config:
 
 - Kitty (terminal emulator)
