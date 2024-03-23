@@ -1,0 +1,2 @@
+# AwesomeWM
+My AwesomeWM configuration.
