@@ -1,4 +1,4 @@
-# Requirements
+# Various stuff in the config:
 
 - Kitty (terminal emulator)
 - Picom (X compositor)
