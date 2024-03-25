@@ -61,6 +61,7 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
+    --awful.layout.suit.max,
     awful.layout.suit.tile,
     awful.layout.suit.floating,
     --awful.layout.suit.tile.left,
@@ -70,7 +71,6 @@ awful.layout.layouts = {
     --awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
-    --awful.layout.suit.max,
     --awful.layout.suit.max.fullscreen,
     --awful.layout.suit.magnifier,
     --awful.layout.suit.corner.nw,
@@ -129,7 +129,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "󰙯 ", " ", " ", " ", " ", " ", "󰙏 " }, s, awful.layout.layouts[1])
+    awful.tag({ "󰙯 ", " ", " ", " ", " ", " ", " " }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -160,6 +160,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mylauncher,
             s.mytaglist,
+            --s.mylayoutbox,
             s.mypromptbox,
         },
         s.mytasklist, -- Middle widget
@@ -168,7 +169,6 @@ awful.screen.connect_for_each_screen(function(s)
             --mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
-            --s.mylayoutbox,
         },
     }
 end)
@@ -342,6 +342,20 @@ for i = 1, 9 do
     )
 end
 
+clientbuttons = gears.table.join(
+    awful.button({ }, 1, function (c)
+        c:emit_signal("request::activate", "mouse_click", {raise = true})
+    end),
+    awful.button({ modkey }, 1, function (c)
+        c:emit_signal("request::activate", "mouse_click", {raise = true})
+        awful.mouse.client.move(c)
+    end),
+    awful.button({ modkey }, 3, function (c)
+        c:emit_signal("request::activate", "mouse_click", {raise = true})
+        awful.mouse.client.resize(c)
+    end)
+)
+
 -- Set keys
 root.keys(globalkeys)
 -- }}}
@@ -433,4 +447,5 @@ awful.spawn.once("picom")
 awful.spawn.once("flameshot")
 awful.spawn.once("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 --disable x screensaver
+awful.spawn.once("xset -dpms")
 awful.spawn.once("xset s off")
