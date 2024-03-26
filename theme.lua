@@ -11,7 +11,7 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = "JetBrainsMono Nerd Font 14"
+theme.font          = "JetBrainsMono Nerd Font 12"
 
 theme.bg_normal     = "#1c1c1c"
 theme.bg_focus      = "#1c1c1c"
@@ -25,7 +25,7 @@ theme.fg_urgent     = "#FF5555"
 theme.fg_minimize   = "#F8F8F2"
 
 theme.useless_gap   = dpi(10)
-theme.border_width  = dpi(2)
+theme.border_width  = dpi(0)
 theme.border_normal = "#1c1c1c"
 theme.border_focus  = "#50FA7B"
 theme.border_marked = "#50FA7B"
