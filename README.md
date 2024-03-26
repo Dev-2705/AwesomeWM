@@ -6,4 +6,4 @@
 - Picom (X compositor)
 - Flameshot (screenshot tool)
 - polkit-gnome (polkit daemon)
-- JetBrainsMono Nerd Font (nerd font for icons)
+- JetBrainsMono Nerd Font (for workspace and terminal icons)
